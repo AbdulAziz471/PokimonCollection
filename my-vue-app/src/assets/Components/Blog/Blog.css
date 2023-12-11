@@ -1,0 +1,13 @@
+.containers {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    grid-template-rows: auto
+}
+
+.search {
+    width: 100%;
+    padding: 30px;
+    margin: 0 auto;
+
+}
