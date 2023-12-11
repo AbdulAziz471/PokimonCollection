@@ -6,7 +6,6 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
     let startPage, endPage;
 
     if (totalPages <= 3) {
-      // Less than 3 total pages so show all
       startPage = 1;
       endPage = totalPages;
     } else {

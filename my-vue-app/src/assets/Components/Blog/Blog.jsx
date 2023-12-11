@@ -5,12 +5,13 @@ import Article from "../Article/Article";
 import Search from "../SearchArticle/Search";
 import "./blog.css";
 import Pagination from "../Pagination/Pagination";
+import DropDwonNavbar from "../DropDwonNavbar/DropDwonNavbar";
 
 export default function Blog() {
   const { data, loading, error } = useData();
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10; // Corrected the variable name to itemsPerPage
+  const itemsPerPage = 10;
 
   console.log(data);
 
@@ -18,7 +19,6 @@ export default function Blog() {
     setSearchQuery(query);
   };
 
-  // Check if data is loaded before calculating totalPage
   const totalPages = data ? Math.ceil(data.length / itemsPerPage) : 0;
 
   const handlePageChange = (newPage) => {
@@ -55,6 +55,9 @@ export default function Blog() {
     <>
       <div className="search">
         <Search onSearchChange={handleSearchChange} searchQuery={searchQuery} />
+      </div>
+      <div className="Categry">
+        <DropDwonNavbar />
       </div>
       <div className="containers">
         {filteredData.map((articleData) => (
