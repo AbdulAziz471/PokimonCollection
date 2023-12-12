@@ -44,9 +44,9 @@ const CardNavigator = ({ data }) => {
   }, [data, goToNextCard, goToPreviousCard]);
 
   const cardVariants = {
-    initial: { opacity: 0, x: 50 },
-    animate: { opacity: 1, x: 0 },
-    exit: { opacity: 0, x: -50 },
+    initial: { opacity: 0, x: -100, zIndex: 0 },
+    animate: { opacity: 1, x: 0, zIndex: 1 },
+    exit: { opacity: 0, x: 100, zIndex: 0 },
   };
 
   return (
@@ -60,7 +60,7 @@ const CardNavigator = ({ data }) => {
               initial="initial"
               animate="animate"
               exit="exit"
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 1 }}
             >
               <div className="flex  justify-center pb-[50px]">
                 <img

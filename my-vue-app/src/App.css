@@ -40,3 +40,10 @@
 .read-the-docs {
   color: #888;
 } */
+
+
+/* Header.css */
+.active-link {
+  color: #ff0000;
+  /* Change this to the desired color */
+}
