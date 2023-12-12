@@ -53,14 +53,14 @@ export default function Blog() {
   return (
     <>
       <div className="flex flex-row width-full">
-        <div>
-          <div className="search">
+        <div className="flex flex-col  w-1/5 py-3 px-4 border-r-2 ">
+          <div>
             <Search
               onSearchChange={handleSearchChange}
               searchQuery={searchQuery}
             />
           </div>
-          <div className="Category">
+          <div>
             <DropDwonNavbar onCategorySelect={handleCategorySelect} />
           </div>
         </div>

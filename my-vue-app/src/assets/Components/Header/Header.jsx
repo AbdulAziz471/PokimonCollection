@@ -4,7 +4,6 @@ import poki from "../../Images/poki.png";
 import { useTheme } from "../../../ThemeContext";
 import dark from "../../Images/dark.svg";
 import light from "../../Images/light.svg";
-import "./header.css";
 
 const Header = () => {
   const { theme, toggleTheme } = useTheme();

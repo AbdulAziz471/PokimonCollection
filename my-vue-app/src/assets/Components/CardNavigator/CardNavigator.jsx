@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import "../HeartButton/HeartButton";
 
 const CardNavigator = ({ data }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -50,57 +49,55 @@ const CardNavigator = ({ data }) => {
   };
 
   return (
-    <>
-      <div>
-        {data && data.length > 0 && (
-          <AnimatePresence>
-            <motion.div
-              key={`${currentIndex}-${animateTrigger}`}
-              variants={cardVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={{ duration: 1 }}
-            >
-              <div className="flex  justify-center pb-[50px]">
-                <img
-                  src={data[currentIndex].images?.small}
-                  alt={data[currentIndex].name}
-                />
-              </div>
-              <h2>
-                <strong>Name:</strong> {data[currentIndex].name}
-              </h2>
-              <p>
-                <strong>Type:</strong> {data[currentIndex].types.join(", ")}
-              </p>
-              <p>
-                <strong>HP:</strong> {data[currentIndex].hp}
-              </p>
-              <ol>
-                {data[currentIndex].attacks.map((attack, index) => (
-                  <li key={index}>
-                    <p>
-                      <strong>Attack Name:</strong> {attack.name}
-                    </p>
-                    <p>
-                      <strong>Damage:</strong> {attack.damage}
-                    </p>
-                    <p>
-                      <strong>Description:</strong> {attack.text}
-                    </p>
-                  </li>
-                ))}
-              </ol>
-            </motion.div>
-          </AnimatePresence>
-        )}
-        <div className="flex width-full justify-around">
-          <button onClick={goToPreviousCard}>Previous</button>
-          <button onClick={goToNextCard}>Next</button>
-        </div>
+    <div>
+      {data && data.length > 0 && (
+        <AnimatePresence>
+          <motion.div
+            key={`${currentIndex}-${animateTrigger}`}
+            variants={cardVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={{ duration: 1 }}
+          >
+            <div>
+              <img
+                src={data[currentIndex].images?.small}
+                alt={data[currentIndex].name}
+              />
+            </div>
+          </motion.div>
+        </AnimatePresence>
+      )}
+      <h2>
+        <strong>Name:</strong> {data[currentIndex].name}
+      </h2>
+      <p>
+        <strong>Type:</strong> {data[currentIndex].types.join(", ")}
+      </p>
+      <p>
+        <strong>HP:</strong> {data[currentIndex].hp}
+      </p>
+      <ol>
+        {data[currentIndex].attacks.map((attack, index) => (
+          <li key={index}>
+            <p>
+              <strong>Attack Name:</strong> {attack.name}
+            </p>
+            <p>
+              <strong>Damage:</strong> {attack.damage}
+            </p>
+            <p>
+              <strong>Description:</strong> {attack.text}
+            </p>
+          </li>
+        ))}
+      </ol>
+      <div className="flex width-full justify-around">
+        <button onClick={goToPreviousCard}>Previous</button>
+        <button onClick={goToNextCard}>Next</button>
       </div>
-    </>
+    </div>
   );
 };
 
