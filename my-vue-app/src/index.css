@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+.custom-link {
+  @apply text-black no-underline text-lg hover:text-gray-300;
+}
 
 :root {
   --background-color: #ffffff;

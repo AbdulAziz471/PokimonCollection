@@ -9,7 +9,7 @@ const Header = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <header className="bg-[#ddec33] text-white p-2 md:px-8 text-center flex flex-row justify-evenly items-center dark:bg-gray-600 dark:text-gray-200">
+    <header className="white text-black p-2 md:px-8 text-center flex flex-row justify-evenly items-center dark:bg-gray-600 dark:text-gray-200">
       <div className="w-half ">
         <NavLink s to="/">
           <img className="w-[100px]" src={poki} alt="Pokemon Icon" />
@@ -18,26 +18,17 @@ const Header = () => {
       <nav className="navbar">
         <ul className="nav-links list-none p-0 flex justify-center">
           <li className="mx-4">
-            <NavLink
-              to="/Feature"
-              className="text-white no-underline text-lg hover:text-gray-300"
-            >
+            <NavLink to="/Feature" className="custom-link">
               FeaturesCard
             </NavLink>
           </li>
           <li className="mx-4">
-            <NavLink
-              to="/Compare"
-              className="text-white no-underline text-lg hover:text-gray-300"
-            >
+            <NavLink to="/Compare" className="custom-link">
               Compare
             </NavLink>
           </li>
           <li className="mx-4">
-            <NavLink
-              to="/contact"
-              className="text-white no-underline text-lg hover:text-gray-300"
-            >
+            <NavLink to="/contact" className="custom-link">
               Contact
             </NavLink>
           </li>
