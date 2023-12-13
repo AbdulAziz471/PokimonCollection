@@ -10,7 +10,6 @@ export default function BlogPage() {
         }`}
       >
         <h1 className=" text-3xl font-bold underline text-gray-800 dark:text-white">
-          {" "}
           CARD COLLECTION
         </h1>
         <Blog />

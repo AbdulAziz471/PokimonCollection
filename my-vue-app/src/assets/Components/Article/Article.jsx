@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useData } from "../../../DataContext";
-import "./Article.css";
+
 import Heartbutton from "../HeartButton/HeartButton";
 
 export default function Article({ data }) {
@@ -18,6 +18,7 @@ export default function Article({ data }) {
       alert(`add in Favourite ${data.id}`);
     }
   };
+
   return (
     <>
       <div className=" shadow-2xl rounded-3xl  transition ease-in delay-150 w-full dark:bg-slate-600 dark:shadow-2xl dark:shadow-slate-500 dark:hover:shadow-none hover:shadow-none animate-fadeInUp  ">

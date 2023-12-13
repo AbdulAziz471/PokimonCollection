@@ -1,4 +1,4 @@
-import "./HeartButton.css";
+
 export default function Heartbutton({ onClick, isfav }) {
   return (
     <>

@@ -8,7 +8,7 @@ import "./Blog.css";
 import Pagination from "../Pagination/Pagination";
 import DropDwonNavbar from "../DropDwonNavbar/DropDwonNavbar";
 export default function Blog() {
-  const { data, loading, error } = useData();
+  const { data, loading, error, favorites } = useData();
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
@@ -16,13 +16,18 @@ export default function Blog() {
   const handleCategorySelect = (category) => {
     setSelectedCategory(category === "All Categories" ? null : category);
   };
+
+  const favoritesCount = favorites.length;
   const handleSearchChange = (query) => {
     setSearchQuery(query);
   };
+
   const totalPages = data ? Math.ceil(data.length / itemsPerPage) : 0;
+
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
   };
+
   if (loading) {
     return (
       <Circles
@@ -40,6 +45,7 @@ export default function Blog() {
   if (!Array.isArray(data) || data.length === 0) {
     return <p>No data available</p>;
   }
+
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const filteredData = data
@@ -50,6 +56,7 @@ export default function Blog() {
       (card) => !selectedCategory || card.types.includes(selectedCategory)
     )
     .slice(startIndex, endIndex);
+
   return (
     <>
       <div className="flex flex-row width-full">
@@ -65,13 +72,16 @@ export default function Blog() {
           </div>
         </div>
         <div>
-          <div
-            className="flex flex-col  px-10
-          "
-          >
-            <h1 className="py-[30px] text-[50px] dark:text-white  ">
-              {selectedCategory || "All Categories"}
-            </h1>
+          <div className="flex flex-col  px-10">
+            <div className="flex items-center justify-between ">
+              <h1 className="py-[30px] text-[50px] dark:text-white  ">
+                {selectedCategory || "All Categories"}{" "}
+              </h1>
+              <h2 className="text-center dark:text-white pr-8 ">
+                Favorite Cards:{" "}
+                <span className="font-bold"> {favoritesCount}</span>
+              </h2>
+            </div>
             <div className="grid grid-cols-5 gap-5">
               {filteredData.map((articleData) => (
                 <Article key={articleData.id} data={articleData} />
