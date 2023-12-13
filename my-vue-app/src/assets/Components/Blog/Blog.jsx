@@ -4,7 +4,7 @@ import { useData } from "../../../DataContext";
 import { Circles } from "react-loader-spinner";
 import Article from "../Article/Article";
 import Search from "../SearchArticle/Search";
-import "./blog.css";
+import "./Blog.css";
 import Pagination from "../Pagination/Pagination";
 import DropDwonNavbar from "../DropDwonNavbar/DropDwonNavbar";
 export default function Blog() {
@@ -65,11 +65,14 @@ export default function Blog() {
           </div>
         </div>
         <div>
-          <div className="flex flex-col">
-            <h1 className="py-[30px]">
+          <div
+            className="flex flex-col  px-10
+          "
+          >
+            <h1 className="py-[30px] text-[50px] dark:text-white  ">
               {selectedCategory || "All Categories"}
             </h1>
-            <div className="containers">
+            <div className="grid grid-cols-5 gap-5">
               {filteredData.map((articleData) => (
                 <Article key={articleData.id} data={articleData} />
               ))}

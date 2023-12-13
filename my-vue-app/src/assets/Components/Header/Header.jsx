@@ -5,6 +5,7 @@ import { useTheme } from "../../../ThemeContext";
 import dark from "../../Images/dark.svg";
 import light from "../../Images/light.svg";
 
+
 const Header = () => {
   const { theme, toggleTheme } = useTheme();
 
@@ -41,6 +42,7 @@ const Header = () => {
           <img src={light} alt="Light Mode" />
         )}
       </button>
+
     </header>
   );
 };

@@ -20,8 +20,8 @@ export default function Article({ data }) {
   };
   return (
     <>
-      <div className="card ">
-        <div className="container">
+      <div className=" shadow-2xl rounded-3xl  transition ease-in delay-150 w-full dark:bg-slate-600 dark:shadow-2xl dark:shadow-slate-500 dark:hover:shadow-none hover:shadow-none animate-fadeInUp  ">
+        <div className="container p-4">
           <Link to={`/CardDetail/${data.id}`}>
             <img src={data?.images?.small} alt="Avatar" />
           </Link>

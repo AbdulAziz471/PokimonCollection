@@ -2,8 +2,10 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useData } from "../../DataContext";
 import typeColors from "./type.json";
+import { useTheme } from "../../ThemeContext";
 export default function CardDetail() {
   const { id } = useParams();
+  const { theme } = useTheme();
   const { data, loading, error } = useData();
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
@@ -16,47 +18,49 @@ export default function CardDetail() {
   const backgroundColor = typeColors[backgroundColorClass];
   return (
     <>
-      <div
-        className={`bg-${backgroundColorClass}`}
-        style={{ background: backgroundColor }}
-      >
-        <h2>Card Details</h2>
-        <div className="flex w-full flex-row justify-around   pt-5">
-          <div className="w-3/6">
-            <img src={card.images.small} />
-          </div>
-          <div className="w-3/6">
-            <p>
-              <strong>ID:</strong> {card.id}
-            </p>
-            <p>
-              <strong>Name:</strong> {card.name}
-            </p>
-            <p>
-              <strong>Type:</strong> {card.types.join(", ")}
-            </p>
-            <p>
-              <strong>HP:</strong> {card.hp}
-            </p>
+      <div className={`min-h-screen ${theme === "dark" ? "bg-gray-800" : "bg-white"}`}>
+        <div
+          className={`bg-${backgroundColorClass}`}
+          style={{ background: backgroundColor }}
+        >
+          <h2>Card Details</h2>
+          <div className="flex w-full flex-row justify-around   pt-5">
+            <div className="w-3/6">
+              <img src={card.images.small} />
+            </div>
+            <div className="w-3/6">
+              <p>
+                <strong>ID:</strong> {card.id}
+              </p>
+              <p>
+                <strong>Name:</strong> {card.name}
+              </p>
+              <p>
+                <strong>Type:</strong> {card.types.join(", ")}
+              </p>
+              <p>
+                <strong>HP:</strong> {card.hp}
+              </p>
 
-            <h3>Attacks</h3>
-            <ol>
-              {card.attacks.map((attack, index) => (
-                <li>
-                  <div key={index}>
-                    <p>
-                      <strong>Attack Name:</strong> {attack.name}
-                    </p>
-                    <p>
-                      <strong>Damage:</strong> {attack.damage}
-                    </p>
-                    <p>
-                      <strong>Description:</strong> {attack.text}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ol>
+              <h3>Attacks</h3>
+              <ol>
+                {card.attacks.map((attack, index) => (
+                  <li>
+                    <div key={index}>
+                      <p>
+                        <strong>Attack Name:</strong> {attack.name}
+                      </p>
+                      <p>
+                        <strong>Damage:</strong> {attack.damage}
+                      </p>
+                      <p>
+                        <strong>Description:</strong> {attack.text}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </div>
           </div>
         </div>
       </div>
