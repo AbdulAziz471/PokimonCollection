@@ -10,7 +10,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <DataProvider>
       <NextUIProvider>
         <ThemeProvider>
-          <App />
+          <main className="">
+            <App />
+          </main>
         </ThemeProvider>
       </NextUIProvider>
     </DataProvider>

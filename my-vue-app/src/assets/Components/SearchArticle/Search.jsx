@@ -1,4 +1,4 @@
-import React from "react";
+
 
 export default function Search({ onSearchChange, searchQuery }) {
   return (
@@ -39,6 +39,7 @@ export default function Search({ onSearchChange, searchQuery }) {
           />
         </div>
       </form>
+
     </>
   );
 }

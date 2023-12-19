@@ -5,14 +5,13 @@ import { useTheme } from "../../../ThemeContext";
 import dark from "../../Images/dark.svg";
 import light from "../../Images/light.svg";
 
-
 const Header = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
     <header className="white text-black p-2 md:px-8 text-center flex flex-row justify-evenly items-center dark:bg-gray-600 dark:text-gray-200">
       <div className="w-half ">
-        <NavLink s to="/">
+        <NavLink to="/">
           <img className="w-[100px]" src={poki} alt="Pokemon Icon" />
         </NavLink>
       </div>
@@ -42,7 +41,6 @@ const Header = () => {
           <img src={light} alt="Light Mode" />
         )}
       </button>
-
     </header>
   );
 };

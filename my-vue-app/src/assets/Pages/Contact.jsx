@@ -1,11 +1,16 @@
 import Dropdown from "../Components/DropDwon/DropDwon";
 import Custom from "../Components/DropDwon/Custom";
 import { useTheme } from "../../ThemeContext";
+import Num from "../Components/Countnumbers/Counter";
 export default function Contact() {
   const { theme } = useTheme();
   return (
     <>
-      <div className={`min-h-screen ${theme === "dark" ? "bg-gray-800" : "bg-white"}`}>
+      <div
+        className={`min-h-screen ${
+          theme === "dark" ? "bg-gray-800" : "bg-white"
+        }`}
+      >
         <div className="flex">
           <div>
             <Dropdown
@@ -49,6 +54,7 @@ export default function Contact() {
             />
           </div>
         </div>
+        <Num />
       </div>
     </>
   );
